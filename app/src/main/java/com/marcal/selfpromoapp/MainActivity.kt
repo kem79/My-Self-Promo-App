@@ -1,30 +1,29 @@
 package com.marcal.selfpromoapp
 
 import android.os.Bundle
-import android.widget.Button
+import android.util.Log
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.textfield.TextInputEditText
+import com.marcal.selfpromoapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        val previewButton: Button = findViewById(R.id.button_preview)
-        previewButton.setOnClickListener { view ->
+        binding.buttonPreview.setOnClickListener { view ->
             onPreviewClicked()
         }
     }
 
     private fun onPreviewClicked() {
-        val contactNameEditText: TextInputEditText = findViewById(R.id.edit_text_contact_name)
-        val contactNumberEditText: TextInputEditText = findViewById(R.id.edit_text_contact_number)
-        val testString = contactNameEditText.text.toString() + ", " + contactNumberEditText.text.toString()
+        Log.d("This is my TAG", "Currently, contactNameEditText is " + binding.editTextContactName.toString())
+        val testString = binding.editTextContactName.text.toString() + ", " + binding.editTextContactNumber.text.toString()
         Toast.makeText(this, testString, Toast.LENGTH_LONG).show()
     }
 }
