@@ -13,7 +13,16 @@ class PreviewActivity : AppCompatActivity() {
         val binding = ActivityPreviewBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        binding.textViewMessage.text = "Hello i set the text in a new activity"
+        val contactName = intent.getStringExtra("Contact Name")
+        val contactNumber = intent.getStringExtra("Contact Number")
+        val myDisplayName = intent.getStringExtra("My Display Name")
+        val includeJunior = intent.getBooleanExtra("Include Junior", false)
+        val jobTitle = intent.getStringExtra("Job Title")
+        val immediateStart = intent.getBooleanExtra("Immediate Start", false)
+        val startDate = intent.getStringExtra("Start Date")
+
+        val testString = "Contact Name: $contactName, Contact Number: $contactNumber, My display name: $myDisplayName, include junior: $includeJunior"
+        binding.textViewMessage.text = testString
 
     }
 }
