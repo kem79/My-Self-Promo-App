@@ -23,7 +23,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun onPreviewClicked() {
         Log.d("This is my TAG", "Currently, contactNameEditText is " + binding.editTextContactName.toString())
-        val testString = binding.editTextContactName.text.toString() + ", " + binding.editTextContactNumber.text.toString()
+        val contactName = binding.editTextContactName.text.toString()
+        val contactNumber = binding.editTextContactNumber.text.toString()
+        val myDisplayName = binding.editTextMyDisplayName.text.toString()
+        val includeJunior = binding.checkBoxJunior.isChecked
+        val jobTitle = binding.spinnerJobTitle.selectedItem?.toString()
+        val immediateStart = binding.checkBoxImmediateStart.isChecked
+        val startDate = binding.editTextStartDate.text.toString()
+
+        val testString = "Contact Name: $contactName, Contact Number: $contactNumber"
         Toast.makeText(this, testString, Toast.LENGTH_LONG).show()
+
     }
 }
