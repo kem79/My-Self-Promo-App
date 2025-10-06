@@ -3,7 +3,7 @@ package com.marcal.selfpromoapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.marcal.selfpromoapp.databinding.ActivityMainBinding
 
@@ -20,10 +20,19 @@ class MainActivity : AppCompatActivity() {
         binding.buttonPreview.setOnClickListener { view ->
             onPreviewClicked()
         }
+
+        val spinnerValues: Array<String> = arrayOf("Test", "Developer", "Manager")
+        val spinnerAdapter = ArrayAdapter(this,
+            android.R.layout.simple_spinner_dropdown_item,
+            spinnerValues)
+        binding.spinnerJobTitle.adapter = spinnerAdapter
     }
 
     private fun onPreviewClicked() {
-        Log.d("This is my TAG", "Currently, contactNameEditText is " + binding.editTextContactName.toString())
+        Log.d(
+            "This is my TAG",
+            "Currently, contactNameEditText is " + binding.editTextContactName.toString()
+        )
         val contactName = binding.editTextContactName.text.toString()
         val contactNumber = binding.editTextContactNumber.text.toString()
         val myDisplayName = binding.editTextMyDisplayName.text.toString()
