@@ -1,5 +1,6 @@
 package com.marcal.selfpromoapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -31,8 +32,7 @@ class MainActivity : AppCompatActivity() {
         val immediateStart = binding.checkBoxImmediateStart.isChecked
         val startDate = binding.editTextStartDate.text.toString()
 
-        val testString = "Contact Name: $contactName, Contact Number: $contactNumber"
-        Toast.makeText(this, testString, Toast.LENGTH_LONG).show()
-
+        val previewActivityIntent = Intent(this, PreviewActivity::class.java)
+        startActivity(previewActivityIntent)
     }
 }
