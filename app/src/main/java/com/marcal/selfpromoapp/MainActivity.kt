@@ -21,7 +21,11 @@ class MainActivity : AppCompatActivity() {
             onPreviewClicked()
         }
 
-        val spinnerValues: Array<String> = arrayOf("Test", "Developer", "Manager")
+        val spinnerValues: Array<String> = arrayOf(
+            "Android Tester",
+            "Android Developer",
+            "Android Security Engineer"
+        )
         val spinnerAdapter = ArrayAdapter(this,
             android.R.layout.simple_spinner_dropdown_item,
             spinnerValues)
