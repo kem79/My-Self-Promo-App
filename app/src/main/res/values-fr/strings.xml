@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mon auto-promotion sans vergogne</string>
+    <string name="contact_name">Nom du contact</string>
+    <string name="contact_number">Numero de telephone du contact</string>
+    <string name="my_display_name">Nom d\'affichage</string>
+    <string name="include_junior">Junior</string>
+    <string name="immediate_start">Disponible immediatement</string>
+    <string name="available_from_date">Disponible a partir de</string>
+    <string name="preview_message">Voir le message</string>
+    <string name="button_text_send_message">Envoyer le message</string>
+</resources>
