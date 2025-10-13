@@ -13,16 +13,26 @@ class PreviewActivity : AppCompatActivity() {
         val binding = ActivityPreviewBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        val contactName = intent.getStringExtra("Contact Name")
-        val contactNumber = intent.getStringExtra("Contact Number")
-        val myDisplayName = intent.getStringExtra("My Display Name")
-        val includeJunior = intent.getBooleanExtra("Include Junior", false)
-        val jobTitle = intent.getStringExtra("Job Title")
-        val immediateStart = intent.getBooleanExtra("Immediate Start", false)
-        val startDate = intent.getStringExtra("Start Date")
 
-        val testString = "Contact Name: $contactName, Contact Number: $contactNumber, My display name: $myDisplayName, include junior: $includeJunior, job title: $jobTitle"
-        binding.textViewMessage.text = testString
+        // casting with "as"
+        val message = intent.getSerializableExtra("Message") as Message
+
+        // raw string with triple quotes
+        val messagePreviewText = """
+            Hi ${message.contactName},
+            
+            My name is ${message.myDisplayName}, and I am ${message.getFullJobDescription()}.
+            
+            I have a portfolio of apps to demonstrate my technical skills that i can show on request.
+            
+            I am able to start a new position ${message.getAvailability()}.
+             
+            Please get in touch if you have any suitable job for me. My PHone number is ${message.contactNumber}.
+            
+            Thanks and best regards.
+        """.trimIndent()
+
+        binding.textViewMessage.text = messagePreviewText
 
     }
 }
